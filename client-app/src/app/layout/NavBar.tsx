@@ -10,7 +10,7 @@ export default function NavBar({ openForm }: Props) {
     <Menu inverted fixed="top">
       <Container>
         <Menu.Item header>
-          <img src="/assets/logo.png" alt="logo" />
+          <img src="/assets/logo192.png" alt="logo" />
           Reactivities
         </Menu.Item>
         <Menu.Item name="Activities" />

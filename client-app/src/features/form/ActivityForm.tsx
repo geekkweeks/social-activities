@@ -69,6 +69,7 @@ export default function ActivityForm({
         <Form.Field>
           <label>Date</label>
           <input
+            type="date"
             placeholder="Date"
             value={activity.date}
             name="date"

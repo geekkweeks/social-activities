@@ -6,6 +6,7 @@ import NavBar from "./NavBar";
 import ActivityDashboard from "../../features/activities/dashboard/ActivityDashboard";
 import { v4 as uuid } from "uuid";
 import agent from "../api/agent";
+import LoadingComponent from "./LoadingComponent";
 
 function App() {
   const [activities, setActivities] = useState<Activity[]>([]);
@@ -14,6 +15,7 @@ function App() {
     Activity | undefined
   >(undefined);
   const [editMode, setEditMode] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     agent.Activities.list().then((response) => {
@@ -24,6 +26,8 @@ function App() {
         activities.push(activity);
       });
       setActivities(response);
+      // set loading false after data has been populated
+      setLoading(false);
     });
   }, []);
 
@@ -58,6 +62,9 @@ function App() {
   function handleDeleteActivity(id: string) {
     setActivities([...activities.filter((f) => f.id !== id)]);
   }
+
+  //main UI doesnt appear if loading true
+  if (loading) return <LoadingComponent content="Loading App" />;
 
   return (
     <>

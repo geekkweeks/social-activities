@@ -4,8 +4,11 @@ export default class ActivityStore {
   title = "Hello From React Developer";
 
   constructor() {
-    makeAutoObservable(this, {
-      title: observable,
-    });
+    makeAutoObservable(this);
   }
+
+  // Action
+  setTitle = () => {
+    this.title = this.title + "!";
+  };
 }

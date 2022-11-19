@@ -1,6 +1,5 @@
 import { Card, Image, Button } from "semantic-ui-react";
 import LoadingComponent from "../../../app/layout/LoadingComponent";
-import { Activity } from "../../../app/models/activity";
 import { useStore } from "../../../app/stores/store";
 
 export default function ActivityDetails() {
